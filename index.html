@@ -1,0 +1,144 @@
+<html>
+	<head>
+		<title>Calculadora</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+      .calculadora {
+        margin-top: 40px;
+        border: solid 1px #000;
+        padding: 20px;
+        background-color: #2E2E2E;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px #000;
+      }
+
+      .btn {
+        width: 60px;
+        height: 50px;
+        margin: 5px;
+        box-shadow: 1px 1px 1px #000;
+      }
+
+      .clear {
+        width: 130px;
+      }
+
+      .enter {
+        height: 110px;
+      }
+
+      .zero {
+        width: 130px;
+      }
+
+      .resultado {
+        text-align: right;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: solid 1px #000;
+        box-shadow: 1px 1px 1px #000;
+      }
+
+    </style><!-- poderia também utilizar as classes(.)em um arquivo css separado/
+            could also use the classes (.) in a separate css file-->
+	</head>
+
+  <body style="background: #D9D9D9">
+
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <br />
+
+          <div class="calculadora">
+            <input id="resultado" type="text" class="form-control resultado" placeholder="0" disabled="disabled" /><!--tela da calculadora(resultado)/calculator screen(result)-->
+            
+            <div class="row">
+              <button onclick="calcular('acao','c')" type="button" class="btn btn-dark btn-lg clear font-weight-light">C</button><!--botão limpar/clear button-->
+              <button onclick="calcular('acao','/')" type="button" class="btn btn-dark btn-lg font-weight-light">/</button><!-- botão da divisão/division button-->
+              <button onclick="calcular('acao','*')" type="button" class="btn btn-dark btn-lg font-weight-light">x</button><!--botão da multiplicação/multiplication button-->
+            </div>
+
+            <div class="row">
+              <button onclick="calcular('valor',7)" type="button" class="btn btn-dark btn-lg font-weight-light">7
+              </button><!--número sete/number seven(7)-->
+              <button onclick="calcular('valor',8)" type="button" class="btn btn-dark btn-lg font-weight-light">8</button><!--número oito/number eight(8)-->
+              <button onclick="calcular('valor',9)" type="button" class="btn btn-dark btn-lg font-weight-light">9</button><!--número nove/number nine(9)-->
+              <button onclick="calcular('acao','-')" type="button" class="btn btn-dark btn-lg font-weight-light">-</button><!--botão subtração/subtraction button(-)-->
+            </div>
+            
+            <div class="row">
+              <button onclick="calcular('valor',4)" type="button" class="btn btn-dark btn-lg font-weight-light">4</button><!--botão quatro/four button(4)-->
+              <button onclick="calcular('valor',5)" type="button" class="btn btn-dark btn-lg font-weight-light">5</button><!--botão cinco/five button(5)-->
+              <button onclick="calcular('valor',6)" type="button" class="btn btn-dark btn-lg font-weight-light">6</button><!--botão seis/six button(6)-->
+              <button onclick="calcular('acao','+')" type="button" class="btn btn-dark btn-lg font-weight-light">+
+              </button><!--botão de soma/sum botton(+)-->
+            </div>
+
+            <div class="row">
+              <button onclick="calcular('valor',1)" type="button" class="btn btn-dark btn-lg font-weight-light">1</button><!--botão um/one button(1)-->
+              <button onclick="calcular('valor',2)" type="button" class="btn btn-dark btn-lg font-weight-light">2</button><!--botão dois/two button(2)-->
+              <button onclick="calcular('valor',3)" type="button" class="btn btn-dark btn-lg font-weight-light">3</button><!--botão três/three button(3)-->
+              <button onclick="calcular('acao','=')" type="button" class="btn btn-dark btn-lg enter">=
+              </button><!--botão de igual/equal button(=)-->
+            </div>
+
+            <div class="row" style="margin-top: -60px">
+              <button onclick="calcular('valor',0)" type="button" class="btn btn-dark zero btn-lg font-weight-light">0</button><!--botão zero/zero button(0)-->
+              <button onclick="calcular('acao','.')" type="button" class="btn btn-dark btn-lg font-weight-light">.
+              </button><!--botão ponto/point button(.)-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> 
+    <script>// para incluir o codigo Js/*
+    function calcular(tipo,valor) {
+     if (tipo==="acao") {
+      if (valor==="c") {
+        document.getElementById("resultado").value = ''
+      }
+      if (valor==="+"|| valor==="-"|| valor==="*"|| valor==="/"|| valor==="." ||valor==="") {
+        document.getElementById('resultado').value += valor
+      }
+      if (valor==="=") {
+       var valor_campo = eval(document.getElementById('resultado').value)
+       document.getElementById('resultado').value = valor_campo
+      }
+
+     }else if (tipo==="valor") {
+
+      
+      document.getElementById("resultado").value += valor
+     } 
+      }//condiçao que verifica acao e valor-condition that checks "acao","valor"-/*
+    </script>   
+  </body>	
+
+</html>
+
+<!--PROJETO FEITO DE ACORDO COM A SESSÃO de javacript do curso/
+  ROJECT MADE ACCORDING TO THE COURSE- javacript SESSION-->
+
+<!--use "console.log()"para poder estudar ele de maneira diferente no navegador/
+use "console.log ()" to be able to study it differently in the browser-->
+
+<!--template da calculadora usada a partir do bootstrap/
+  calculator template used from the bootstrap-->
+
+<!--document.getElementById=recupera os dados pra apresentar na tela da calculadora/
+    document.getElementById=retrieves the data to display on the calculator screen-->
+
+ <!--onclick=clicar nos botões pra gerar a ação/
+  onclick=click on the buttons to generate the action-->
+
+  <!--(+=)AJUDA A FAZER A CONCATENAÇÃO E REDUZIR O CÓDIGO/
+    (+ =) HELP CONCATENATE AND REDUCE THE CODE-->
+
+<!--PROJETO FEITO DE ACORDO COM CURSO/
+PROJECT MADE IN ACCORDANCE WITH COURSE-->    
